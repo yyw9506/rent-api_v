@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.rent.api.mapper.CustomerMapper">
+
+    <select id="selectByCustomerId" resultType="com.xxx.rent.api.model.Customer">
+        select * from customer where customer_id = #{customerId}
+    </select>
+
+    <select id="selectByCarModelId" resultType="com.xxx.rent.api.model.Inventory">
+        select * from inventory where car_model_id = #{carModelId}
+    </select>
+
+    <update id="updateByCarModelId" parameterType="com.xxx.rent.api.model.Inventory">
+        update inventory set car_in_stock = #{carInStock} where car_model_id = #{carModelId, jdbcType=BIGINT}
+    </update>
+
+    <insert id="insertIntoReserve" parameterType="com.xxx.rent.api.model.Reserve">
+        insert into reserve(customer_id, customer_name, car_model_id, car_model, quantity, duration, reserve_status)
+        values(#{customerId}, #{customerName}, #{carModelId}, #{carModel}, #{quantity}, #{duration}, #{reserveStatus});
+    </insert>
+
+</mapper>

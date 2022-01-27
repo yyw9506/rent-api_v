@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://104.208.84.69:3306/Prudential?useUnicode=true"/
+    username: root
+    password: m7DWeXPKj@6UsMkI
